@@ -1,0 +1,118 @@
+\ProvidesPackage{beamerthemeunn}
+
+\mode<presentation>
+
+% user-defined colors
+\definecolor{unngray}{RGB}{128,130,133}
+\definecolor{unnlightgray}{RGB}{218,218,217}
+\definecolor{unnblue}{RGB}{15,104,170}
+\definecolor{unnblack}{RGB}{30,30,30}
+
+% colorscheme
+\setbeamercolor{headline}{fg=white, bg=unnblue}
+\setbeamercolor{block body}{fg=unnblack, bg=unnlightgray}
+\setbeamercolor{block title}{fg=white, bg=unnblue}
+\setbeamercolor{title in headline}{fg=white}
+\setbeamercolor{author in headline}{fg=unnlightgray}
+\setbeamercolor{institute in headline}{fg=unnlightgray}
+\setbeamercolor{footline}{fg=white, bg=unnblue}
+\setbeamercolor{separation line}{bg=unngray}
+
+% fonts
+\setbeamerfont{block title}{size=\large, series=\bfseries}
+\setbeamerfont{footline}{size=\normalsize, series=\bfseries}
+
+% miscellanea
+\def\beamer@andinst{\quad}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}{\color{unnblue}\footnotesize{$\blacksquare$}}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+% --- Headline
+\setbeamertemplate{headline}{
+    \begin{beamercolorbox}[wd=\paperwidth]{headline}
+        \begin{columns}
+            \begin{column}{.05\paperwidth} % padding
+            \end{column}
+            \begin{column}{.7\paperwidth}
+                \vskip4ex
+                \raggedleft
+                \usebeamercolor{title in headline}{\color{fg}\LARGE{\textbf{\inserttitle}}\\[1ex]}
+                \usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}\\[1ex]}
+                \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+            \end{column}
+            \begin{column}{.01\paperwidth} % padding
+            \end{column}
+            \begin{column}{.21\paperwidth}
+                \vfill
+                \centering
+                \includegraphics[width=0.55\textwidth]{images/unn}\;
+                \vfill
+            \end{column}
+            \begin{column}{.03\paperwidth} % padding
+            \end{column}
+        \end{columns}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+        \rule{0pt}{3pt}
+    \end{beamercolorbox}
+    \vskip-3ex
+}
+
+% ---
+
+% --- Blocks
+
+\setbeamertemplate{block begin}{
+    \vskip1.5ex
+    \begin{beamercolorbox}[ht=2.5ex,dp=2ex,center,rounded=true]{block title}
+        \usebeamerfont{block title}\centering\insertblocktitle
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[center]{block body}
+    \vskip 1.75ex
+        \begin{minipage}{0.96\textwidth}
+}
+
+\setbeamertemplate{block end}{
+        \end{minipage}
+    \vskip 1.9ex
+    \end{beamercolorbox}
+    \vskip1.3ex
+}
+
+% ---
+
+% --- Figure captions
+
+\defbeamertemplate{caption}{mynumbered}{
+    \justifying
+    \normalsize
+    \itshape
+    {\usebeamercolor[fg]{structure}{\insertcaptionname\;\insertcaptionnumber:}}
+    \insertcaption\par
+}
+\setbeamertemplate{caption}[mynumbered]
+
+% ---
+
+% --- Footline
+
+\setbeamertemplate{footline}{
+    \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+        \rule{0pt}{3pt}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=8ex,wd=\paperwidth,leftskip=1ex,rightskip=1ex]{footline}
+   Работа выполнена при поддержке Минобрнауки РФ (проект № 0729–2020–0055) и НОМЦ «Математика технологий будущего» (проект № 075-02-2022-883).
+        \hfill
+        
+        \vskip1ex
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+        \rule{0pt}{3pt}
+    \end{beamercolorbox}
+}
+
+% ---
+
+\mode<all>
